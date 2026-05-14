@@ -1,0 +1,7 @@
+#statistic module helps calculate average and other statistic values.program
+import statistics
+data = [10 ,20,20, 30, 40]
+print("means:",statistics.mean(data))# average of data
+print("median:",statistics.median(data))# middle value of data
+print("mode:",statistics.mode(data))# most common value in data
+

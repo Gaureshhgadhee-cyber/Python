@@ -1,0 +1,6 @@
+#os module helps interact with operating system (files and folders )
+
+import os
+print("current directory:",os.getcwd())
+print("files in directory:",os.listdir())
+os.mkdir("new_folder")
