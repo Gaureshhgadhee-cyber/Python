@@ -1,0 +1,42 @@
+#Create example.txt, write data, read data, append new line, and verify updated content.
+
+# Write into file
+file = open("example.txt", "w")
+
+file.write("Python is easy to learn.\n")
+file.write("File handling is important.\n")
+
+file.close()
+
+# Read file
+file = open("example.txt", "r")
+
+print("File Content:")
+print(file.read())
+
+file.close()
+
+# Append data
+file = open("example.txt", "a")
+
+file.write("This line is added later.\n")
+
+file.close()
+
+# Read updated content
+file = open("example.txt", "r")
+
+print("\nUpdated Content:")
+print(file.read())
+
+file.close()
+
+'''File Content:
+Python is easy to learn.
+File handling is important.
+
+
+Updated Content:
+Python is easy to learn.
+File handling is important.
+This line is added later.'''

@@ -1,0 +1,21 @@
+# Read story.txt (located next to this script), count word frequencies, display descending
+file = open("story.txt", "w")
+
+file.write("Python is easy to learn.\n")
+file.write("File handling is important.\n")
+#main code to count word frequencies
+file.close()
+file = open("story.txt", "r")
+text = file.read()
+file.close()
+words = text.lower().split()
+freq = {}
+for word in words:
+    word = word.strip(".,!?\"'")   # remove punctuation
+    freq[word] = freq.get(word, 0) + 1
+# Sort words by frequency (descending)
+sorted_words = sorted(freq.items(), key=lambda x: x[1], reverse=True)
+# Display result
+print("Word Frequencies:\n")
+for word, count in sorted_words:
+    print(word, ":", count)

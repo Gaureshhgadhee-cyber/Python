@@ -1,0 +1,24 @@
+'''File Copy with Exception Handling
+Copy contents of source.txt(story.txt) into destination.txt using exception handling.'''
+
+try:
+     #Open source file
+    src = open("story.txt", "r")
+    
+    # Read content
+    content = src.read()
+    
+    # Open destination file
+    dest = open("destination.txt", "w")
+    
+    # Write content
+    dest.write(content)
+    
+    print("File copied successfully!")
+
+    # Close files
+    src.close()
+    dest.close()
+
+except FileNotFoundError:
+    print("Error: story.txt file does not exist.")

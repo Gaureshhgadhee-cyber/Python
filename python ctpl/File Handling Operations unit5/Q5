@@ -1,0 +1,37 @@
+'''🔥 EXPERIMENT 5 — CSV File Handling
+❓Question
+
+Create data.csv, insert records, display records, search by ID.'''
+
+import csv
+
+# Write records
+with open("data.csv", "w", newline="") as file:
+    writer = csv.writer(file)
+
+    writer.writerow(["ID", "Name", "Age"])
+
+    writer.writerow([1, "Amit", 20])
+    writer.writerow([2, "Pooja", 21])
+    writer.writerow([3, "Rahul", 19])
+    writer.writerow([4, "Neha", 22])
+    writer.writerow([5, "Riya", 20])
+
+# Read records
+with open("data.csv", "r") as file:
+    reader = csv.reader(file)
+
+    print("CSV Contents:\n")
+
+    for row in reader:
+        print(row)
+
+# Search record
+search_id = input("\nEnter ID to search: ")
+
+with open("data.csv", "r") as file:
+    reader = csv.reader(file)
+
+    for row in reader:
+        if row[0] == search_id:
+            print("Record Found:", row)

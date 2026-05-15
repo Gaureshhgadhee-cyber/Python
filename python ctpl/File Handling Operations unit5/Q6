@@ -1,0 +1,84 @@
+'''🔥 EXPERIMENT 6 — Student Record Management System
+❓Question
+
+Store student records in students.txt, add/display/search records using exception handling.'''
+
+def add_record():
+    try:
+        file = open("students.txt", "a")
+
+        roll = input("Enter Roll Number: ")
+        name = input("Enter Name: ")
+        marks = input("Enter Marks: ")
+
+        file.write(roll + "," + name + "," + marks + "\n")
+
+        file.close()
+
+        print("Record Added Successfully")
+
+    except:
+        print("Error while adding record")
+
+
+def display_records():
+    try:
+        file = open("students.txt", "r")
+
+        print("\nStudent Records:\n")
+
+        for line in file:
+            print(line)
+
+        file.close()
+
+    except FileNotFoundError:
+        print("File not found")
+
+
+def search_record():
+    try:
+        search_roll = input("Enter Roll Number to Search: ")
+
+        file = open("students.txt", "r")
+
+        found = False
+
+        for line in file:
+            data = line.strip().split(",")
+
+            if data[0] == search_roll:
+                print("Record Found:", data)
+                found = True
+
+        if not found:
+            print("Record not found")
+
+        file.close()
+
+    except FileNotFoundError:
+        print("File not found")
+
+
+while True:
+    print("\n1.Add Record")
+    print("2.Display Records")
+    print("3.Search Record")
+    print("4.Exit")
+
+    choice = input("Enter Choice: ")
+
+    if choice == "1":
+        add_record()
+
+    elif choice == "2":
+        display_records()
+
+    elif choice == "3":
+        search_record()
+
+    elif choice == "4":
+        break
+
+    else:
+        print("Invalid Choice")
